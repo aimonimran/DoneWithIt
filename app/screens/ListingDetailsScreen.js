@@ -1,8 +1,8 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import colors from "../config/colors";
-import AppText from "./AppText";
-import ListItem from "./ListItem";
+import AppText from "../components/AppText";
+import ListItem from "../components/ListItem";
 
 function ListingDetailsScreen(props) {
   return (
