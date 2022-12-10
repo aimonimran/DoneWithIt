@@ -4,21 +4,23 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import defaultStyles from "../config/styles";
 import Screen from "./Screen";
 
-const AppTextInput = ({ icon, size = 25, ...otherProps }) => {
+const AppTextInput = ({ icon, size = 25, ...rest }) => {
   return (
-    <Screen>
-      <View style={styles.container}>
-        {icon && (
-          <MaterialCommunityIcons
-            size={size}
-            name={icon}
-            color={defaultStyles.colors.medium}
-            style={styles.icon}
-          />
-        )}
-        <TextInput style={defaultStyles.text} {...otherProps} />
-      </View>
-    </Screen>
+    <View style={styles.container}>
+      {icon && (
+        <MaterialCommunityIcons
+          size={size}
+          name={icon}
+          color={defaultStyles.colors.medium}
+          style={styles.icon}
+        />
+      )}
+      <TextInput
+        placeholderTextColor={defaultStyles.colors.medium}
+        style={defaultStyles.text}
+        {...rest}
+      />
+    </View>
   );
 };
 
