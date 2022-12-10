@@ -5,9 +5,10 @@ import Screen from "./../components/Screen";
 import {
   AppForm,
   SubmitButton,
-  AppFormField,
-  AppFormPicker,
+  AppFormField as FormField,
+  AppFormPicker as Picker,
 } from "./../components/forms";
+import CategoryPickerItem from "../components/CategoryPickerItem";
 
 const initialValues = {
   title: "",
@@ -28,9 +29,30 @@ const onSubmit = (values) => {
 };
 
 const categories = [
-  { label: "Furniture", value: 1 },
-  { label: "Clothing", value: 2 },
-  { label: "Camera", value: 3 },
+  { label: "Furniture", value: 1, backgroundColor: "tomato", icon: "apps" },
+  { label: "Cars", value: 2, backgroundColor: "orange", icon: "car" },
+  {
+    label: "Camera",
+    value: 3,
+    backgroundColor: "pink",
+    icon: "camera",
+  },
+  { label: "Games", value: 4, backgroundColor: "violet", icon: "cards" },
+  { label: "Clothing", value: 5, backgroundColor: "brown", icon: "tshirt-v" },
+  {
+    label: "Sports",
+    value: 6,
+    backgroundColor: "purple",
+    icon: "baseball",
+  },
+  {
+    label: "Movies & Music",
+    value: 7,
+    backgroundColor: "grey",
+    icon: "movie-open-outline",
+  },
+  { label: "Books", value: 8, backgroundColor: "gold", icon: "bookshelf" },
+  { label: "Others", value: 9, backgroundColor: "silver", icon: "lock" },
 ];
 
 const ListingEditScreen = () => {
@@ -41,19 +63,23 @@ const ListingEditScreen = () => {
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        <AppFormField maxLength={255} name="title" placeholder="Title" />
-        <AppFormField
+        <FormField maxLength={255} name="title" placeholder="Title" />
+        <FormField
           maxLength={8}
           keyboardType="numeric"
           name="price"
           placeholder="Price"
+          width={120}
         />
-        <AppFormPicker
+        <Picker
           items={categories}
           name="category"
           placeholder="Category"
+          PickerItemComponent={CategoryPickerItem}
+          numberOfColumns={3}
+          width="50%"
         />
-        <AppFormField
+        <FormField
           multiline
           numberOfLines={3}
           maxLength={255}

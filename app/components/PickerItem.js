@@ -3,10 +3,10 @@ import AppText from "./AppText";
 
 import React from "react";
 
-function PickerItem({ label, onPress }) {
+function PickerItem({ item, onPress }) {
   return (
     <TouchableOpacity onPress={onPress}>
-      <AppText style={styles.text}>{label}</AppText>
+      <AppText style={styles.text}>{item.label}</AppText>
     </TouchableOpacity>
   );
 }
