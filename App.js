@@ -1,12 +1,16 @@
-import { NavigationContainer } from "@react-navigation/native";
-import AuthNavigator from "./app/navigation/AuthNavigator";
-import navigationTheme from "./app/navigation/navigationTheme";
-import AppNavigator from "./app/navigation/AppNavigator";
+import { NavigationContainer } from '@react-navigation/native';
+import AuthNavigator from './app/navigation/AuthNavigator';
+import navigationTheme from './app/navigation/navigationTheme';
+import AppNavigator from './app/navigation/AppNavigator';
+import OfflineNotice from './app/components/OfflineNotice';
 
 export default function App() {
-  return (
-    <NavigationContainer theme={navigationTheme}>
-      <AppNavigator />
-    </NavigationContainer>
-  );
+	return (
+		<>
+			<OfflineNotice />
+			<NavigationContainer theme={navigationTheme}>
+				<AppNavigator />
+			</NavigationContainer>
+		</>
+	);
 }
