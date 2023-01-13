@@ -23,7 +23,6 @@ const LoginScreen = () => {
 		if (!result.ok) return setLoginFailed(true);
 		setLoginFailed(false);
 		logIn(result.data);
-		console.log(result.data);
 	};
 
 	return (
